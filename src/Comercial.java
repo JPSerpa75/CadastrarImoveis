@@ -1,5 +1,5 @@
 public class Comercial extends Imovel {
-	private int cnpj, contrato;
+	private int cnpj, cdgAlvara;
 	
 	public Comercial() {
 		this.tipo = "Comercial";
@@ -13,12 +13,18 @@ public class Comercial extends Imovel {
 		this.cnpj = cnpj;
 	}
 
-	public int getContrato() {
-		return contrato;
+	public int getCdgAlvara() {
+		return cdgAlvara;
 	}
 
-	public void setContrato(int contrato) {
-		this.contrato = contrato;
+	public void setCdgAlvara(int cdgAlvara) {
+		this.cdgAlvara = cdgAlvara;
+	}
+	
+	public void ExibeImovel() {
+		super.ExibeImovel();
+		System.out.println("CNPJ do locatário: " + this.cnpj);
+		System.out.println("Número do alvará de funcionamento: " + this.cdgAlvara);
 	}
 	
 }

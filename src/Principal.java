@@ -39,8 +39,10 @@ public class Principal {
 						}
 						if(opcao==1) {
 							Residencial R1 = new Residencial();
+							System.out.print("Digite o código do imóvel: ");
+							R1.setCodigo(leitor.nextInt());
 							System.out.print("Digite a localidade do imóvel: ");
-							leitor.next();
+							leitor.nextLine();
 							R1.setLocalidade(leitor.nextLine());
 							System.out.print("Digite a área do imóvel (em m²): ");
 							R1.setArea(leitor.nextDouble());
@@ -53,14 +55,19 @@ public class Principal {
 							
 						}else if(opcao==2) {
 							Comercial C1 = new Comercial();
+							System.out.print("Digite o código do imóvel: ");
+							C1.setCodigo(leitor.nextInt());							
 							System.out.print("Digite a localidade do imóvel: ");
-							leitor.next();
+							leitor.nextLine();
 							C1.setLocalidade(leitor.nextLine());
 							System.out.print("Digite a área do imóvel (em m²): ");
 							C1.setArea(leitor.nextDouble());
 							System.out.print("Digite o cnpj do locatário: ");
 							C1.setCnpj(leitor.nextInt());
-							System.out.println("Digite o ");
+							System.out.print("Digite o número do alvará de funcionamento: ");
+							C1.setCdgAlvara(leitor.nextInt());
+							
+							listaImovel.add(C1);
 						}
 					}
 					opcao=0;
@@ -68,11 +75,19 @@ public class Principal {
 				case 2:
 					break;
 				case 3:
-					System.out.println();
-					for(int i=0;i<listaImovel.size();i++) {
-						Imovel temp = listaImovel.get(i);
-						temp.ExibeImovel();
+					while(opcao!=1) {
+						System.out.println();
+						System.out.println("Lista de imóveis cadastrados");
+						for(int i=0;i<listaImovel.size();i++) {
+							Imovel temp = listaImovel.get(i);
+							temp.ExibeImovel();
+						}
+						System.out.println();
+						System.out.print("Digite 1 para voltar: ");
+						opcao = leitor.nextInt();
 					}
+
+					
 					break;
 				case 4:
 					System.out.println("Programa finalizado");
