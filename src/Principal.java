@@ -27,6 +27,7 @@ public class Principal {
 			
 			switch(opcao) {
 				case 1:
+					opcao=0;
 					while(opcao!=3) {
 						System.out.println();
 						System.out.println("1 - Residencial");
@@ -36,23 +37,16 @@ public class Principal {
 						try {
 							opcao = leitor.nextInt();
 						} catch (InputMismatchException e) {
+							System.out.println("Opção invalida!");
 							leitor.nextLine();
 						}
 						if(opcao==1) {
 							Residencial R1 = new Residencial();
 							System.out.print("Digite o código do imóvel: ");
 							int codigo = leitor.nextInt();
-							valido=0;
-							for(i=0;i<listaImovel.size();i++) {
-								Imovel temp = listaImovel.get(i);
-								if(temp.getCodigo()==codigo) {
-									System.out.println("Imóvel já cadastrado!");
-									valido=1;
-									break;
-								}
-							}
 							
-							if(valido==0) {
+							
+							if(R1.verificaCodigo(codigo, listaImovel)==0) {
 								R1.setCodigo(codigo);
 								System.out.print("Digite a localidade do imóvel: ");
 								leitor.nextLine();
@@ -73,18 +67,9 @@ public class Principal {
 						}else if(opcao==2) {
 							Comercial C1 = new Comercial();
 							System.out.print("Digite o código do imóvel: ");
-							C1.setCodigo(leitor.nextInt());
 							int codigo = leitor.nextInt();
-							valido=0;
-							for(i=0;i<listaImovel.size();i++) {
-								Imovel temp = listaImovel.get(i);
-								if(temp.getCodigo()==codigo) {
-									System.out.println("Imóvel já cadastrado!");
-									valido=1;
-									break;
-								}
-							}
-							if(valido==0) {
+							
+							if(C1.verificaCodigo(codigo, listaImovel)==0) {
 								C1.setCodigo(codigo);
 								System.out.print("Digite a localidade do imóvel: ");
 								leitor.nextLine();

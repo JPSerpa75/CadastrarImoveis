@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class Imovel {
 	private int codigo;
@@ -28,5 +29,17 @@ public class Imovel {
 		System.out.println("Área: " + this.area +"m²");
 	}
 
+	public int verificaCodigo(int codigo, List<Imovel> listaImoveis) {
+		int valido=0;
+		for(int i=0;i<listaImoveis.size();i++) {
+			Imovel temp = listaImoveis.get(i);
+			if(temp.getCodigo()==codigo) {
+				System.out.println("Imóvel já cadastrado!");
+				valido=1;
+				break;
+			}
+		}
+		return valido;
+	}
 	
 }
