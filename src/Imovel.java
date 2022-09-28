@@ -4,6 +4,10 @@ public class Imovel {
 	private Double area;
 	protected String tipo, localidade;
 
+	public int getCodigo() {
+		return codigo;
+	}
+	
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
