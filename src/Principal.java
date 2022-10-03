@@ -95,7 +95,13 @@ public class Principal {
 						System.out.println();
 						System.out.println("Excluir imóvel");
 						System.out.print("Digite o código do imóvel: ");
-						int cod = leitor.nextInt();
+						int cod=-1;
+						try {
+							cod = leitor.nextInt();
+						} catch (Exception ex) {
+							leitor.nextLine();
+						}
+						
 						
 						i=0;
 						int apagado=0;
@@ -115,7 +121,11 @@ public class Principal {
 							System.out.println("Imóvel não encontrado");
 						}
 						System.out.print("Digite 1 para voltar: ");
-						opcao = leitor.nextInt();
+						try {
+							opcao = leitor.nextInt();
+						} catch (Exception ex) {
+							leitor.nextLine();
+						}
 						
 					}
 					break;
@@ -133,10 +143,13 @@ public class Principal {
 						}
 						System.out.println();
 						System.out.print("Digite 1 para voltar: ");
-						opcao = leitor.nextInt();
-					}
-
-					
+						try {
+							opcao = leitor.nextInt();
+						} catch (Exception ex) {
+							leitor.nextLine();
+							
+						}	
+					}			
 					break;
 				case 4:
 					System.out.println("Programa finalizado");
